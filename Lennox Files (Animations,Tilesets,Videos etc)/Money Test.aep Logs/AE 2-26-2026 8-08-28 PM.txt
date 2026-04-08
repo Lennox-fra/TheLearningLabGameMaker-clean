@@ -1,0 +1,17 @@
+Adobe After Effects v26.0 Windows 64 render log for project “Money Test.aep”
+
+Rendering started on 2/26/2026 at 8:08:28 PM
+
+  2/26/2026 8:08:28 PM: Starting composition “Graphics test Pixel art”.
+
+  Output To: C:\Users\Leona\GameMakerProjects\The Learning Lab\GitProject\TheLearningLabGameMaker\AE files\Graphics test Pixel art.mov  After Effects error: Cannot run a script while a modal dialog is waiting for response.After Effects error: Cannot run a script while a modal dialog is waiting for response.  2/26/2026 8:08:29 PM: Finished composition “Graphics test Pixel art”.
+
+
+  2/26/2026 8:08:29 PM: Starting composition “Graphics test Pixel art”.
+
+  Output To: C:\Users\Leona\GameMakerProjects\The Learning Lab\GitProject\TheLearningLabGameMaker\AE files\-50 money video.mov    2/26/2026 8:08:31 PM: Finished composition “Graphics test Pixel art”.
+
+
+  Total Time Elapsed: 3 Seconds
+Log closed on 2/26/2026 at 8:08:31 PM
+

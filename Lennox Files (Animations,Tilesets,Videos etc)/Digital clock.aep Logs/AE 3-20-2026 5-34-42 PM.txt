@@ -1,0 +1,17 @@
+Adobe After Effects v26.0 Windows 64 render log for project “Digital clock.aep”
+
+Rendering started on 3/20/2026 at 5:34:42 PM
+
+  3/20/2026 5:34:42 PM: Starting composition “Clock handle ”.
+
+  Output To: C:\Users\Leona\GameMakerProjects\The Learning Lab\GitProject\TheLearningLabGameMaker\Lennox Files (Animations,Tilesets,Videos etc)\UI 30 second clock animation\Clock handle .png  After Effects error: Cannot run a script while a modal dialog is waiting for response.After Effects error: Cannot run a script while a modal dialog is waiting for response.  3/20/2026 5:34:42 PM: Finished composition “Clock handle ”.
+
+
+  3/20/2026 5:34:42 PM: Starting composition “Clock handle ”.
+
+  Output To: C:\Users\Leona\GameMakerProjects\The Learning Lab\GitProject\TheLearningLabGameMaker\Lennox Files (Animations,Tilesets,Videos etc)\UI 30 second clock animation\Clock .png    3/20/2026 5:34:42 PM: Finished composition “Clock handle ”.
+
+
+  Total Time Elapsed: 0 Seconds
+Log closed on 3/20/2026 at 5:34:42 PM
+
