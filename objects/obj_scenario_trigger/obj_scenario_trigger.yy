@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"coin",
-    "path":"sprites/coin/coin.yy",
+    "name":"EgirlMiniSprite",
+    "path":"sprites/EgirlMiniSprite/EgirlMiniSprite.yy",
   },
   "spriteMaskId":null,
   "visible":true,
