@@ -107,6 +107,7 @@
     {"id":{"name":"Sprite45","path":"sprites/Sprite45/Sprite45.yy",},},
     {"id":{"name":"Sprite46","path":"sprites/Sprite46/Sprite46.yy",},},
     {"id":{"name":"Sprite47","path":"sprites/Sprite47/Sprite47.yy",},},
+    {"id":{"name":"Sprite49","path":"sprites/Sprite49/Sprite49.yy",},},
     {"id":{"name":"mazeFloor","path":"tilesets/mazeFloor/mazeFloor.yy",},},
   ],
   "resourceType":"GMProject",
