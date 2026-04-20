@@ -13,10 +13,16 @@ current_node = 0;
 portrait_sprites = [spr_char_red, spr_char_blue];
 current_portrait = -1;
 scenarios = scr_setup_scenarios();
+selected_age_group = "13-17"; // default - will be set by age selection screen
 available_scenarios = [];
+
+// Only load scenarios matching the selected age group
 for (var i = 0; i < array_length(scenarios); i++)
 {
-    array_push(available_scenarios, i);
+    if (scenarios[i].age_group == selected_age_group)
+    {
+        array_push(available_scenarios, i);
+    }
 }
 
 // Scenario timer

@@ -22,15 +22,13 @@
     {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
   ],
   "IncludedFiles":[
-    {"$GMIncludedFile":"","%Name":"5min clock.mov","CopyToMask":-1,"filePath":"datafiles","name":"5min clock.mov","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"5Min Clock.mp4","CopyToMask":-1,"filePath":"datafiles","name":"5Min Clock.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"Animated coin .mov","CopyToMask":-1,"filePath":"datafiles","name":"Animated coin .mov","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"Animated_Coin.mp4","CopyToMask":-1,"filePath":"datafiles","name":"Animated_Coin.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"The Learning Lab",
   "resources":[
