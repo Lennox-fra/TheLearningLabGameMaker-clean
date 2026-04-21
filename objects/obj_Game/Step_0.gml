@@ -1,42 +1,47 @@
-// Game timer - only ticks when idle (paused during scenarios)
-if (!game_over && state == "idle")
+// Game timer - now ticks during idle AND scenarios
+if (!game_over && (state == "idle" || state == "scenario"))
 {
     game_timer--;
     if (game_timer <= 0)
     {
         game_timer = 0;
         game_over = true;
+        timer_active = false;
         state = "game_over";
     }
+}
+
+// Run out of money = game over
+if (!game_over && money <= 0)
+{
+    money = 0;
+    game_over = true;
+    timer_active = false;
+    state = "game_over";
 }
 
 if (state == "scenario")
 {
     var scenario = scenarios[current_scenario];
     var node = scenario.nodes[current_node];
-
     // Scenario timer countdown
     if (timer_active)
     {
         timer_current++;
         timer_frame++;
-
         if (timer_current >= timer_max)
         {
             timer_active = false;
             money += -250;
             audio_play_sound(snd_money_loss, 1, false);
-
             var anim = instance_create_depth(250, 280, -1000, obj_money_loss_anim);
             anim.sprite_index = spr_minus250;
             anim.image_index = 0;
-
             current_text = "Time ran out! You lose £250.";
             options = [];
             state = "end";
         }
     }
-
     if (keyboard_check_pressed(vk_up))
     {
         selected_option--;
@@ -54,7 +59,6 @@ if (state == "scenario")
         var next_node = node.next[selected_option];
         var money_change = node.money[selected_option];
         money += money_change;
-
         if (money_change < 0)
         {
             audio_play_sound(snd_money_loss, 1, false);
@@ -72,7 +76,6 @@ if (state == "scenario")
                 anim.image_index = 0;
             }
         }
-
         if (next_node == -1)
         {
             timer_active = false;
@@ -84,7 +87,6 @@ if (state == "scenario")
         {
             timer_current = 0;
             timer_frame = 0;
-
             current_node = next_node;
             var new_node = scenario.nodes[current_node];
             current_text = new_node.text;
@@ -107,7 +109,6 @@ else if (state == "end")
 }
 else if (state == "game_over")
 {
-    // Press enter to restart or quit
     if (keyboard_check_pressed(vk_enter))
     {
         game_restart();

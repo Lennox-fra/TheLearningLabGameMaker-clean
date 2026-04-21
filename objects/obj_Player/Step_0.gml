@@ -25,5 +25,17 @@ if (g != noone && g.state == "idle") {
 	x = clamp(x, 0, room_width);
 	y = clamp(y, 0, room_height);
 	
+	if (h != 0 || v != 0){
+    // Moving → animate
+    image_speed = 3; // adjust speed to taste
+	}
+	else{
+	    // Not moving → stop animation
+	    image_speed = 0;
+	    image_index = 0; // force first frame
+	}
+	
 }
+
+
 

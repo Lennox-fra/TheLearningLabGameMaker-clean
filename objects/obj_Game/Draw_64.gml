@@ -6,7 +6,7 @@ var scale = 0.5;
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height();
 
-// Game timer display (top right, always visible except game over)
+// Game timer display
 if (state != "game_over")
 {
     var seconds_left = ceil(game_timer / game_get_speed(gamespeed_fps));
@@ -17,7 +17,6 @@ if (state != "game_over")
     draw_set_halign(fa_right);
     draw_set_valign(fa_top);
 
-    // Flash red in last 30 seconds
     if (seconds_left <= 30)
     {
         draw_set_color(make_color_rgb(255, 80, 80));
@@ -40,6 +39,12 @@ if (state != "game_over")
     draw_set_color(c_white);
 }
 
+// Stop Think Fraud logo - top centre
+if (state != "game_over")
+{
+    draw_sprite_ext(spr_Logo, 0, gui_w / 2 - (1920 * 0.15) / 2, 20, 0.15, 0.15, 0, c_white, 1);
+}
+
 if (state == "scenario" || state == "end")
 {
     // Darken background
@@ -49,13 +54,13 @@ if (state == "scenario" || state == "end")
     draw_set_alpha(1);
     draw_set_color(c_white);
 
-    // Draw scenario timer clock
+    // Scenario timer clock - bigger
     if (state == "scenario" && timer_active)
     {
         var total_frames = sprite_get_number(spr_scenarioTimer);
         var frame = floor((timer_current / timer_max) * (total_frames - 1));
         frame = clamp(frame, 0, total_frames - 1);
-        draw_sprite_ext(spr_scenarioTimer, frame, gui_w - 250, 30, 0.15, 0.15, 0, c_white, 1);
+        draw_sprite_ext(spr_scenarioTimer, frame, gui_w - 300, 20, 0.25, 0.25, 0, c_white, 1);
     }
 
     // Panel
@@ -190,14 +195,28 @@ if (state == "game_over")
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
 
-    draw_set_color(make_color_rgb(255, 80, 80));
-    draw_text_transformed(
-        gui_w / 2,
-        gui_h / 2 - 100,
-        "TIME'S UP!",
-        1, 1,
-        0
-    );
+    if (money <= 0)
+    {
+        draw_set_color(make_color_rgb(255, 80, 80));
+        draw_text_transformed(
+            gui_w / 2,
+            gui_h / 2 - 100,
+            "YOU RAN OUT OF MONEY!",
+            1, 1,
+            0
+        );
+    }
+    else
+    {
+        draw_set_color(make_color_rgb(255, 80, 80));
+        draw_text_transformed(
+            gui_w / 2,
+            gui_h / 2 - 100,
+            "TIME'S UP!",
+            1, 1,
+            0
+        );
+    }
 
     draw_set_color(c_white);
     draw_text_transformed(

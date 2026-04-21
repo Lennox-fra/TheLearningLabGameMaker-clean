@@ -24,17 +24,14 @@ for (var i = 0; i < array_length(scenarios); i++)
         array_push(available_scenarios, i);
     }
 }
-
 // Scenario timer
 timer_active = false;
 timer_max = 30 * game_get_speed(gamespeed_fps);
 timer_current = 0;
 timer_frame = 0;
-
 // Game timer (5 minutes)
 game_timer = 5 * 60 * game_get_speed(gamespeed_fps);
 game_over = false;
-
 function start_random_scenario()
 {
     if (array_length(available_scenarios) <= 0)
@@ -54,7 +51,6 @@ function start_random_scenario()
     selected_option = 0;
     current_portrait = choose(portrait_sprites[0], portrait_sprites[1]);
     state = "scenario";
-
     timer_active = true;
     timer_current = 0;
     timer_frame = 0;
