@@ -1524,8 +1524,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"The Learning Lab",
-    "path":"The Learning Lab.yyp",
+    "name":"sprites",
+    "path":"folders/sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
