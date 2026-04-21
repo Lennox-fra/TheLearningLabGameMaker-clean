@@ -1,24 +1,50 @@
-var sx = x;
-var sy = y;
-var button_w = 300;
-var button_h = 80;
-var play_x = sx + 400;
-var play_y = sy + 325;
-play_rect = [
-    play_x - button_w/2,
-    play_y - button_h/2,
-    play_x + button_w/2,
-    play_y + button_h/2
-];
-
-if (mouse_check_button_pressed(mb_left))
+if (transitioning)
 {
-    if (point_in_rectangle(mouse_x, mouse_y,
-        play_rect[0], play_rect[1],
-        play_rect[2], play_rect[3]))
+    loading_frame += 1;
+    if (loading_frame >= sprite_get_number(spr_loading))
     {
-        show_debug_message("PLAY CLICKED");
-        image_speed = 1;
-        alarm[0] = 60;
+        room_goto(target_room);
+    }
+    exit;
+}
+
+var mx = device_mouse_x_to_gui(0);
+var my = device_mouse_y_to_gui(0);
+
+hovered = -1;
+for (var i = 0; i < array_length(buttons); i++)
+{
+    var b = buttons[i];
+    if (point_in_rectangle(mx, my, b.x1, b.y1, b.x2, b.y2))
+    {
+        hovered = i;
+        break;
+    }
+}
+
+if (hovered != -1 && mouse_check_button_pressed(mb_left))
+{
+    var clicked = buttons[hovered].name;
+
+    switch (clicked)
+    {
+        case "start":
+            transitioning = true;
+            loading_frame = 0;
+            target_room = rm_age_choice;
+            break;
+
+        case "settings":
+            break;
+
+        case "credits":
+            transitioning = true;
+            loading_frame = 0;
+            target_room = rm_credits;
+            break;
+
+        case "quit":
+            game_end();
+            break;
     }
 }
