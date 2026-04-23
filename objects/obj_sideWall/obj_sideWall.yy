@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_sideWall",
-    "path":"sprites/spr_sideWall/spr_sideWall.yy",
+    "name":"spr_sideWall1",
+    "path":"sprites/spr_sideWall1/spr_sideWall1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

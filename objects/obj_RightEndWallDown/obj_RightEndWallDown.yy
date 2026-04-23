@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_rightEndWallDown",
-    "path":"sprites/spr_rightEndWallDown/spr_rightEndWallDown.yy",
+    "name":"spr_rightEndWallDown1",
+    "path":"sprites/spr_rightEndWallDown1/spr_rightEndWallDown1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

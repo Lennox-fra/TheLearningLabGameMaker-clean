@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_leftEndWall",
-    "path":"sprites/spr_leftEndWall/spr_leftEndWall.yy",
+    "name":"spr_leftEndWall1",
+    "path":"sprites/spr_leftEndWall1/spr_leftEndWall1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_outerWall",
-    "path":"sprites/spr_outerWall/spr_outerWall.yy",
+    "name":"spr_outerWall1",
+    "path":"sprites/spr_outerWall1/spr_outerWall1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

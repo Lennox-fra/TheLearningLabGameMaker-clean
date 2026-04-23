@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_leftEndWallDown",
-    "path":"sprites/spr_leftEndWallDown/spr_leftEndWallDown.yy",
+    "name":"spr_leftEndWallDown1",
+    "path":"sprites/spr_leftEndWallDown1/spr_leftEndWallDown1.yy",
   },
   "spriteMaskId":null,
   "visible":true,
