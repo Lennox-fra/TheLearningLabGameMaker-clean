@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"The Learning Lab",
-    "path":"The Learning Lab.yyp",
+    "name":"OfficeSprites",
+    "path":"folders/OfficeSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
