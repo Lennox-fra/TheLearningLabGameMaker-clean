@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Cabinet",
+  "%Name":"obj_CafeTable",
   "eventList":[],
   "managed":true,
-  "name":"obj_Cabinet",
+  "name":"obj_CafeTable",
   "overriddenProperties":[],
   "parent":{
-    "name":"maze Asset Objects",
-    "path":"folders/maze Objects/maze Asset Objects.yy",
+    "name":"cafeObjects",
+    "path":"folders/maze Objects/maze Asset Objects/cafeObjects.yy",
   },
   "parentObjectId":{
     "name":"obj_ParentWalls",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"cabinet",
-    "path":"sprites/cabinet/cabinet.yy",
+    "name":"cafeTable",
+    "path":"sprites/cafeTable/cafeTable.yy",
   },
   "spriteMaskId":null,
   "visible":true,

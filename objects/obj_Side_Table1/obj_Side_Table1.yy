@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Cabinet",
+  "%Name":"obj_Side_Table1",
   "eventList":[],
   "managed":true,
-  "name":"obj_Cabinet",
+  "name":"obj_Side_Table1",
   "overriddenProperties":[],
   "parent":{
     "name":"maze Asset Objects",
     "path":"folders/maze Objects/maze Asset Objects.yy",
   },
-  "parentObjectId":{
-    "name":"obj_ParentWalls",
-    "path":"objects/obj_ParentWalls/obj_ParentWalls.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"cabinet",
-    "path":"sprites/cabinet/cabinet.yy",
+    "name":"sideTable86",
+    "path":"sprites/sideTable86/sideTable86.yy",
   },
   "spriteMaskId":null,
   "visible":true,
