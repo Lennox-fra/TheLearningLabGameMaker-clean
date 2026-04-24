@@ -54,6 +54,7 @@
     {"id":{"name":"obj_CouchSide","path":"objects/obj_CouchSide/obj_CouchSide.yy",},},
     {"id":{"name":"obj_credits","path":"objects/obj_credits/obj_credits.yy",},},
     {"id":{"name":"obj_Drawer","path":"objects/obj_Drawer/obj_Drawer.yy",},},
+    {"id":{"name":"obj_end_screen","path":"objects/obj_end_screen/obj_end_screen.yy",},},
     {"id":{"name":"obj_Game","path":"objects/obj_Game/obj_Game.yy",},},
     {"id":{"name":"obj_LeftEndWall","path":"objects/obj_LeftEndWall/obj_LeftEndWall.yy",},},
     {"id":{"name":"obj_LeftEndWallDown","path":"objects/obj_LeftEndWallDown/obj_LeftEndWallDown.yy",},},
@@ -78,6 +79,7 @@
     {"id":{"name":"newMaze","path":"rooms/newMaze/newMaze.yy",},},
     {"id":{"name":"rm_age_choice","path":"rooms/rm_age_choice/rm_age_choice.yy",},},
     {"id":{"name":"rm_credits","path":"rooms/rm_credits/rm_credits.yy",},},
+    {"id":{"name":"rm_end_screen","path":"rooms/rm_end_screen/rm_end_screen.yy",},},
     {"id":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},},
     {"id":{"name":"Room6","path":"rooms/Room6/Room6.yy",},},
@@ -190,6 +192,7 @@
     {"roomId":{"name":"rm_credits","path":"rooms/rm_credits/rm_credits.yy",},},
     {"roomId":{"name":"Room6","path":"rooms/Room6/Room6.yy",},},
     {"roomId":{"name":"newMaze","path":"rooms/newMaze/newMaze.yy",},},
+    {"roomId":{"name":"rm_end_screen","path":"rooms/rm_end_screen/rm_end_screen.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

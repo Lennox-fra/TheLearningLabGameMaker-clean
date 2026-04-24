@@ -1,4 +1,3 @@
-// Game timer - now ticks during idle AND scenarios
 if (!game_over && (state == "idle" || state == "scenario"))
 {
     game_timer--;
@@ -7,7 +6,22 @@ if (!game_over && (state == "idle" || state == "scenario"))
         game_timer = 0;
         game_over = true;
         timer_active = false;
-        state = "game_over";
+        global.end_type = "timeout";
+        global.final_money = money;
+        global.final_time = 0;
+        audio_stop_all();
+        room_goto(rm_end_screen);
+    }
+
+    if (array_length(available_scenarios) <= 0 && state == "idle")
+    {
+        game_over = true;
+        timer_active = false;
+        global.end_type = "complete";
+        global.final_money = money;
+        global.final_time = game_timer;
+        audio_stop_all();
+        room_goto(rm_end_screen);
     }
 }
 

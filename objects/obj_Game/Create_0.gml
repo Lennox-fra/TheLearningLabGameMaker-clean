@@ -24,7 +24,7 @@ timer_max = 30 * game_get_speed(gamespeed_fps);
 timer_current = 0;
 timer_frame = 0;
 // Game timer (5 minutes)
-game_timer = 5 * 60 * game_get_speed(gamespeed_fps);
+game_timer =  5 * 60 *  game_get_speed(gamespeed_fps);
 game_over = false;
 function start_random_scenario()
 {
