@@ -11,14 +11,6 @@ if (!game_over && (state == "idle" || state == "scenario"))
     }
 }
 
-// Run out of money = game over
-if (!game_over && money <= 0)
-{
-    money = 0;
-    game_over = true;
-    timer_active = false;
-    state = "game_over";
-}
 
 if (state == "scenario")
 {

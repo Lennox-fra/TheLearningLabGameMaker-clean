@@ -8,7 +8,7 @@ if (transitioning)
     {
         audio_stop_all();
         global.selected_age_group = selected_age;
-        room_goto(rm_test);
+        room_goto(newMaze);
     }
     exit;
 }
