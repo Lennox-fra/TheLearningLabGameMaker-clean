@@ -6,8 +6,8 @@
   "name":"obj_TableWithTV",
   "overriddenProperties":[],
   "parent":{
-    "name":"maze Asset Objects",
-    "path":"folders/maze Objects/maze Asset Objects.yy",
+    "name":"bedroomObjects",
+    "path":"folders/maze Objects/maze Asset Objects/bedroomObjects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

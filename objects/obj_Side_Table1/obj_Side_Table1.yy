@@ -6,10 +6,13 @@
   "name":"obj_Side_Table1",
   "overriddenProperties":[],
   "parent":{
-    "name":"maze Asset Objects",
-    "path":"folders/maze Objects/maze Asset Objects.yy",
+    "name":"bedroomObjects",
+    "path":"folders/maze Objects/maze Asset Objects/bedroomObjects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_ParentWalls",
+    "path":"objects/obj_ParentWalls/obj_ParentWalls.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

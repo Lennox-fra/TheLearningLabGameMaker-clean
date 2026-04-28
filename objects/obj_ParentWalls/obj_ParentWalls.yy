@@ -8,8 +8,8 @@
   "name":"obj_ParentWalls",
   "overriddenProperties":[],
   "parent":{
-    "name":"maze Objects",
-    "path":"folders/maze Objects.yy",
+    "name":"maze Walls",
+    "path":"folders/maze Objects/maze Walls.yy",
   },
   "parentObjectId":null,
   "persistent":false,

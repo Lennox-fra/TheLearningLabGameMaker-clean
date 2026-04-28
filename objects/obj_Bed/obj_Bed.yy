@@ -6,10 +6,13 @@
   "name":"obj_Bed",
   "overriddenProperties":[],
   "parent":{
-    "name":"maze Asset Objects",
-    "path":"folders/maze Objects/maze Asset Objects.yy",
+    "name":"bedroomObjects",
+    "path":"folders/maze Objects/maze Asset Objects/bedroomObjects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_ParentWalls",
+    "path":"objects/obj_ParentWalls/obj_ParentWalls.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Bed",
-    "path":"sprites/Bed/Bed.yy",
+    "name":"bed_test",
+    "path":"sprites/bed_test/bed_test.yy",
   },
   "spriteMaskId":null,
   "visible":true,
