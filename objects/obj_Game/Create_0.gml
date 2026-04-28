@@ -13,26 +13,60 @@ current_node = 0;
 portrait_sprites = [spr_char_red, spr_char_blue];
 current_portrait = -1;
 scenarios = scr_setup_scenarios();
-available_scenarios = [];
+
+selected_age_group = variable_global_exists("selected_age_group") ? global.selected_age_group : "13-17";
+
+var regular_pool = [];
+var red_herring_pool = [];
 for (var i = 0; i < array_length(scenarios); i++)
 {
-    array_push(available_scenarios, i);
+    if (scenarios[i].age_group == selected_age_group)
+    {
+        if (scenarios[i].red_herring)
+            array_push(red_herring_pool, i);
+        else
+            array_push(regular_pool, i);
+    }
 }
-// Scenario timer
+
+available_scenarios = [];
+
+var num_red = min(2, array_length(red_herring_pool));
+for (var i = 0; i < num_red; i++)
+{
+    var pick = irandom(array_length(red_herring_pool) - 1);
+    array_push(available_scenarios, red_herring_pool[pick]);
+    array_delete(red_herring_pool, pick, 1);
+}
+
+var num_regular = min(3, array_length(regular_pool));
+for (var i = 0; i < num_regular; i++)
+{
+    var pick = irandom(array_length(regular_pool) - 1);
+    array_push(available_scenarios, regular_pool[pick]);
+    array_delete(regular_pool, pick, 1);
+}
+
 timer_active = false;
 timer_max = 30 * game_get_speed(gamespeed_fps);
 timer_current = 0;
 timer_frame = 0;
-// Game timer (5 minutes)
-game_timer =  5 * 60 *  game_get_speed(gamespeed_fps);
+
+game_timer = 5 * 60 * game_get_speed(gamespeed_fps);
 game_over = false;
+end_type = "";
+
 function start_random_scenario()
 {
     if (array_length(available_scenarios) <= 0)
     {
-        state = "idle";
-        current_text = "All scenarios completed.";
-        options = [];
+        game_over = true;
+        timer_active = false;
+        global.end_type = "complete";
+        global.final_money = money;
+        global.final_time = game_timer;
+        audio_stop_all();
+        room_goto(rm_end_screen);
         return;
     }
     var pick = irandom(array_length(available_scenarios) - 1);
