@@ -51,9 +51,6 @@ if (state == "scenario")
             flash_active = true;
             flash_sprite = spr_screen_flash_red;
             flash_frame = 0;
-            var anim = instance_create_depth(250, 280, -1000, obj_money_loss_anim);
-            anim.sprite_index = spr_minus250;
-            anim.image_index = 0;
             current_text = "Time ran out! You lose £250.";
             options = [];
             state = "end";
@@ -82,20 +79,6 @@ if (state == "scenario")
             flash_active = true;
             flash_sprite = spr_screen_flash_red;
             flash_frame = 0;
-
-            var anim_sprite = -1;
-            switch (money_change)
-            {
-                case -150: anim_sprite = spr_minus150; break;
-                case -250: anim_sprite = spr_minus250; break;
-                case -500: anim_sprite = spr_minus500; break;
-            }
-            if (anim_sprite != -1)
-            {
-                var anim = instance_create_depth(250, 280, -1000, obj_money_loss_anim);
-                anim.sprite_index = anim_sprite;
-                anim.image_index = 0;
-            }
         }
         else if (money_change > 0)
         {
