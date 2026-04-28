@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"OfficeSprites",
-    "path":"folders/OfficeSprites.yy",
+    "path":"folders/sprites/mazeSprites/mazeAssetSprites/office/OfficeSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
