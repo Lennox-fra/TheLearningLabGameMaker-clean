@@ -13,9 +13,7 @@ current_node = 0;
 portrait_sprites = [spr_char_red, spr_char_blue];
 current_portrait = -1;
 scenarios = scr_setup_scenarios();
-
 selected_age_group = variable_global_exists("selected_age_group") ? global.selected_age_group : "13-17";
-
 var regular_pool = [];
 var red_herring_pool = [];
 for (var i = 0; i < array_length(scenarios); i++)
@@ -28,9 +26,7 @@ for (var i = 0; i < array_length(scenarios); i++)
             array_push(regular_pool, i);
     }
 }
-
 available_scenarios = [];
-
 var num_red = min(2, array_length(red_herring_pool));
 for (var i = 0; i < num_red; i++)
 {
@@ -38,7 +34,6 @@ for (var i = 0; i < num_red; i++)
     array_push(available_scenarios, red_herring_pool[pick]);
     array_delete(red_herring_pool, pick, 1);
 }
-
 var num_regular = min(3, array_length(regular_pool));
 for (var i = 0; i < num_regular; i++)
 {
@@ -46,15 +41,17 @@ for (var i = 0; i < num_regular; i++)
     array_push(available_scenarios, regular_pool[pick]);
     array_delete(regular_pool, pick, 1);
 }
-
 timer_active = false;
 timer_max = 30 * game_get_speed(gamespeed_fps);
 timer_current = 0;
 timer_frame = 0;
-
 game_timer = 5 * 60 * game_get_speed(gamespeed_fps);
 game_over = false;
 end_type = "";
+coin_frame = 0;
+flash_active = false;
+flash_sprite = -1;
+flash_frame = 0;
 
 function start_random_scenario()
 {

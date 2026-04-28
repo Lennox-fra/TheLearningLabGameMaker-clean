@@ -6,7 +6,51 @@ var scale = 0.5;
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height();
 
-// Game timer display
+if (state != "game_over")
+{
+    var hud_x = 30;
+    var hud_y = 30;
+    var box_width = 380;
+    var box_height = 200;
+    var coin_size = 150;
+
+    var _box_scale_x = box_width / sprite_get_width(spr_money_box);
+    var _box_scale_y = box_height / sprite_get_height(spr_money_box);
+    draw_sprite_ext(
+        spr_money_box, 0,
+        hud_x, hud_y,
+        _box_scale_x, _box_scale_y,
+        0, c_white, 1
+    );
+
+    var _coin_scale = coin_size / sprite_get_width(spr_coin_anim);
+    var _coin_draw_w = sprite_get_width(spr_coin_anim) * _coin_scale;
+    var _coin_draw_h = sprite_get_height(spr_coin_anim) * _coin_scale;
+    var _coin_x = hud_x + (box_width * 0.40) - (_coin_draw_w / 2);
+    var _coin_y = hud_y + (box_height / 2) - (_coin_draw_h / 2);
+    draw_sprite_ext(
+        spr_coin_anim, coin_frame,
+        _coin_x, _coin_y,
+        _coin_scale, _coin_scale,
+        0, c_white, 1
+    );
+
+    draw_set_font(fnt_main);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_middle);
+    draw_set_color(c_white);
+    draw_text_transformed(
+        hud_x + (box_width * 0.45),
+        hud_y + (box_height / 2) + 8,
+        string(money),
+        0.6, 0.6,
+        0
+    );
+
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+}
+
 if (state != "game_over")
 {
     var seconds_left = ceil(game_timer / game_get_speed(gamespeed_fps));
@@ -39,7 +83,6 @@ if (state != "game_over")
     draw_set_color(c_white);
 }
 
-// Stop Think Fraud logo - top centre
 if (state != "game_over")
 {
     draw_sprite_ext(spr_Logo, 0, gui_w / 2 - (1920 * 0.15) / 2, 20, 0.15, 0.15, 0, c_white, 1);
@@ -47,14 +90,12 @@ if (state != "game_over")
 
 if (state == "scenario" || state == "end")
 {
-    // Darken background
     draw_set_alpha(0.85);
     draw_set_color(c_black);
     draw_rectangle(0, 0, gui_w, gui_h, false);
     draw_set_alpha(1);
     draw_set_color(c_white);
 
-    // Scenario timer clock - bigger
     if (state == "scenario" && timer_active)
     {
         var total_frames = sprite_get_number(spr_scenarioTimer);
@@ -63,27 +104,22 @@ if (state == "scenario" || state == "end")
         draw_sprite_ext(spr_scenarioTimer, frame, gui_w - 300, 20, 0.25, 0.25, 0, c_white, 1);
     }
 
-    // Panel
     var panel_x1 = 100;
     var panel_y1 = 280;
     var panel_x2 = gui_w - 100;
     var panel_y2 = gui_h - 40;
 
-    // Panel shadow
     draw_set_alpha(0.3);
     draw_set_color(c_black);
     draw_rectangle(panel_x1 + 6, panel_y1 + 6, panel_x2 + 6, panel_y2 + 6, false);
     draw_set_alpha(1);
 
-    // Panel body
     draw_set_color(make_color_rgb(30, 30, 35));
     draw_rectangle(panel_x1, panel_y1, panel_x2, panel_y2, false);
 
-    // Panel border
     draw_set_color(make_color_rgb(80, 80, 90));
     draw_rectangle(panel_x1, panel_y1, panel_x2, panel_y2, true);
 
-    // Portrait
     var portrait_size = 160;
     var portrait_x = panel_x1 + 30;
     var portrait_y = panel_y1 + 20;
@@ -110,7 +146,6 @@ if (state == "scenario" || state == "end")
     var content_y = panel_y1 + 30;
     var content_width = (panel_x2 - 60 - content_x) * 2;
 
-    // Scenario text
     draw_set_color(make_color_rgb(220, 220, 225));
     draw_text_ext_transformed(
         content_x,
@@ -125,11 +160,9 @@ if (state == "scenario" || state == "end")
     var text_bottom = content_y + string_height_ext(current_text, 64, content_width) * scale + 20;
     var divider_y = max(text_bottom, portrait_y + portrait_size + 40);
 
-    // Divider line
     draw_set_color(make_color_rgb(60, 60, 70));
     draw_line_width(panel_x1 + 30, divider_y, panel_x2 - 30, divider_y, 2);
 
-    // Options
     if (state == "scenario")
     {
         var option_start_y = divider_y + 25;
@@ -167,7 +200,6 @@ if (state == "scenario" || state == "end")
         }
     }
 
-    // End screen prompt
     if (state == "end")
     {
         var prompt_y = panel_y2 - 60;
@@ -184,7 +216,6 @@ if (state == "scenario" || state == "end")
     }
 }
 
-// Game over screen
 if (state == "game_over")
 {
     draw_set_alpha(0.9);
@@ -238,4 +269,9 @@ if (state == "game_over")
 
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
+}
+
+if (flash_active)
+{
+    draw_sprite(flash_sprite, flash_frame, 0, 0);
 }

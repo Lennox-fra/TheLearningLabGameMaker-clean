@@ -1,3 +1,15 @@
+coin_frame += 0.1;
+
+if (flash_active)
+{
+    flash_frame++;
+    if (flash_frame >= sprite_get_number(flash_sprite))
+    {
+        flash_active = false;
+        flash_frame = 0;
+    }
+}
+
 if (!game_over && (state == "idle" || state == "scenario"))
 {
     game_timer--;
@@ -12,7 +24,6 @@ if (!game_over && (state == "idle" || state == "scenario"))
         audio_stop_all();
         room_goto(rm_end_screen);
     }
-
     if (array_length(available_scenarios) <= 0 && state == "idle")
     {
         game_over = true;
@@ -24,13 +35,10 @@ if (!game_over && (state == "idle" || state == "scenario"))
         room_goto(rm_end_screen);
     }
 }
-
-
 if (state == "scenario")
 {
     var scenario = scenarios[current_scenario];
     var node = scenario.nodes[current_node];
-    // Scenario timer countdown
     if (timer_active)
     {
         timer_current++;
@@ -40,6 +48,9 @@ if (state == "scenario")
             timer_active = false;
             money += -250;
             audio_play_sound(snd_money_loss, 1, false);
+            flash_active = true;
+            flash_sprite = spr_screen_flash_red;
+            flash_frame = 0;
             var anim = instance_create_depth(250, 280, -1000, obj_money_loss_anim);
             anim.sprite_index = spr_minus250;
             anim.image_index = 0;
@@ -68,6 +79,10 @@ if (state == "scenario")
         if (money_change < 0)
         {
             audio_play_sound(snd_money_loss, 1, false);
+            flash_active = true;
+            flash_sprite = spr_screen_flash_red;
+            flash_frame = 0;
+
             var anim_sprite = -1;
             switch (money_change)
             {
@@ -81,6 +96,13 @@ if (state == "scenario")
                 anim.sprite_index = anim_sprite;
                 anim.image_index = 0;
             }
+        }
+        else if (money_change > 0)
+        {
+            audio_play_sound(snd_money_gain, 1, false);
+            flash_active = true;
+            flash_sprite = spr_screen_flash_green;
+            flash_frame = 0;
         }
         if (next_node == -1)
         {
