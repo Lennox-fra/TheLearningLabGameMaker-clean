@@ -13,7 +13,6 @@ if (state != "game_over")
     var box_width = 380;
     var box_height = 200;
     var coin_size = 150;
-
     var _box_scale_x = box_width / sprite_get_width(spr_money_box);
     var _box_scale_y = box_height / sprite_get_height(spr_money_box);
     draw_sprite_ext(
@@ -22,7 +21,6 @@ if (state != "game_over")
         _box_scale_x, _box_scale_y,
         0, c_white, 1
     );
-
     var _coin_scale = coin_size / sprite_get_width(spr_coin_anim);
     var _coin_draw_w = sprite_get_width(spr_coin_anim) * _coin_scale;
     var _coin_draw_h = sprite_get_height(spr_coin_anim) * _coin_scale;
@@ -34,7 +32,6 @@ if (state != "game_over")
         _coin_scale, _coin_scale,
         0, c_white, 1
     );
-
     draw_set_font(fnt_main);
     draw_set_halign(fa_left);
     draw_set_valign(fa_middle);
@@ -46,7 +43,6 @@ if (state != "game_over")
         0.6, 0.6,
         0
     );
-
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }
@@ -57,10 +53,8 @@ if (state != "game_over")
     var mins = seconds_left div 60;
     var secs = seconds_left mod 60;
     var time_string = string(mins) + ":" + (secs < 10 ? "0" : "") + string(secs);
-
     draw_set_halign(fa_right);
     draw_set_valign(fa_top);
-
     if (seconds_left <= 30)
     {
         draw_set_color(make_color_rgb(255, 80, 80));
@@ -69,15 +63,7 @@ if (state != "game_over")
     {
         draw_set_color(c_white);
     }
-
-    draw_text_transformed(
-        gui_w - 40,
-        40,
-        time_string,
-        0.7, 0.7,
-        0
-    );
-
+    draw_text_transformed(gui_w - 40, 40, time_string, 0.7, 0.7, 0);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_white);
@@ -94,6 +80,20 @@ if (state == "scenario" || state == "end")
     draw_set_color(c_black);
     draw_rectangle(0, 0, gui_w, gui_h, false);
     draw_set_alpha(1);
+    draw_set_color(c_white);
+
+   
+    var seconds_left = ceil(game_timer / game_get_speed(gamespeed_fps));
+    var mins = seconds_left div 60;
+    var secs = seconds_left mod 60;
+    var time_string = string(mins) + ":" + (secs < 10 ? "0" : "") + string(secs);
+    draw_set_halign(fa_right);
+    if (seconds_left <= 30)
+        draw_set_color(make_color_rgb(255, 80, 80));
+    else
+        draw_set_color(c_white);
+    draw_text_transformed(gui_w - 40, 40, time_string, 0.7, 0.7, 0);
+    draw_set_halign(fa_left);
     draw_set_color(c_white);
 
     if (state == "scenario" && timer_active)
@@ -116,7 +116,6 @@ if (state == "scenario" || state == "end")
 
     draw_set_color(make_color_rgb(30, 30, 35));
     draw_rectangle(panel_x1, panel_y1, panel_x2, panel_y2, false);
-
     draw_set_color(make_color_rgb(80, 80, 90));
     draw_rectangle(panel_x1, panel_y1, panel_x2, panel_y2, true);
 
@@ -130,7 +129,6 @@ if (state == "scenario" || state == "end")
         draw_rectangle(portrait_x - 10, portrait_y - 10, portrait_x + portrait_size + 10, portrait_y + portrait_size + 10, false);
         draw_set_color(make_color_rgb(100, 100, 110));
         draw_rectangle(portrait_x - 10, portrait_y - 10, portrait_x + portrait_size + 10, portrait_y + portrait_size + 10, true);
-
         var pw = sprite_get_width(current_portrait);
         var ph = sprite_get_height(current_portrait);
         var pscale = min(portrait_size / pw, portrait_size / ph);
@@ -169,14 +167,12 @@ if (state == "scenario" || state == "end")
         for (var i = 0; i < array_length(options); i++)
         {
             var oy = option_start_y + i * 70;
-
             if (i == selected_option)
             {
                 draw_set_alpha(0.15);
                 draw_set_color(c_white);
                 draw_rectangle(panel_x1 + 20, oy - 8, panel_x2 - 30, oy + 40, false);
                 draw_set_alpha(1);
-
                 draw_set_color(make_color_rgb(255, 220, 100));
                 draw_text_transformed(
                     panel_x1 + 40,
@@ -222,51 +218,22 @@ if (state == "game_over")
     draw_set_color(c_black);
     draw_rectangle(0, 0, gui_w, gui_h, false);
     draw_set_alpha(1);
-
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
-
     if (money <= 0)
     {
         draw_set_color(make_color_rgb(255, 80, 80));
-        draw_text_transformed(
-            gui_w / 2,
-            gui_h / 2 - 100,
-            "YOU RAN OUT OF MONEY!",
-            1, 1,
-            0
-        );
+        draw_text_transformed(gui_w / 2, gui_h / 2 - 100, "YOU RAN OUT OF MONEY!", 1, 1, 0);
     }
     else
     {
         draw_set_color(make_color_rgb(255, 80, 80));
-        draw_text_transformed(
-            gui_w / 2,
-            gui_h / 2 - 100,
-            "TIME'S UP!",
-            1, 1,
-            0
-        );
+        draw_text_transformed(gui_w / 2, gui_h / 2 - 100, "TIME'S UP!", 1, 1, 0);
     }
-
     draw_set_color(c_white);
-    draw_text_transformed(
-        gui_w / 2,
-        gui_h / 2 + 20,
-        "Final Money: £" + string(money),
-        0.6, 0.6,
-        0
-    );
-
+    draw_text_transformed(gui_w / 2, gui_h / 2 + 20, "Final Money: £" + string(money), 0.6, 0.6, 0);
     draw_set_color(make_color_rgb(170, 170, 180));
-    draw_text_transformed(
-        gui_w / 2,
-        gui_h / 2 + 120,
-        "Press ENTER to restart",
-        0.5, 0.5,
-        0
-    );
-
+    draw_text_transformed(gui_w / 2, gui_h / 2 + 120, "Press ENTER to restart", 0.5, 0.5, 0);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }

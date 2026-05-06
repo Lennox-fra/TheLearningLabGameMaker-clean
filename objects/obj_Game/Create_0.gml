@@ -1,4 +1,5 @@
 randomize();
+audio_stop_sound(snd_mainMusic);
 audio_play_sound(snd_music, 0, true);
 display_set_gui_size(1920, 1080);
 gpu_set_texfilter(false);
@@ -45,7 +46,14 @@ timer_active = false;
 timer_max = 30 * game_get_speed(gamespeed_fps);
 timer_current = 0;
 timer_frame = 0;
-game_timer = 5 * 60 * game_get_speed(gamespeed_fps);
+if (selected_age_group == "36+")
+{
+    game_timer = 8 * 60 * game_get_speed(gamespeed_fps);
+}
+else
+{
+    game_timer = 5 * 60 * game_get_speed(gamespeed_fps);
+}
 game_over = false;
 end_type = "";
 coin_frame = 0;

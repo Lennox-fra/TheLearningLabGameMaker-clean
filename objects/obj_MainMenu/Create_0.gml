@@ -1,4 +1,7 @@
-audio_play_sound(snd_mainMusic, 0, true);
+if (!audio_is_playing(snd_mainMusic))
+{
+    audio_play_sound(snd_mainMusic, 0, true);
+}
 
 buttons = [
     { name: "start",    x1: 124, y1: 570, x2: 595, y2: 639 },
