@@ -1,5 +1,4 @@
 coin_frame += 0.1;
-
 if (flash_active)
 {
     flash_frame++;
@@ -9,8 +8,7 @@ if (flash_active)
         flash_frame = 0;
     }
 }
-
-if (!game_over && (state == "idle" || state == "scenario"))
+if (!game_over && (state == "idle" || state == "scenario" || state == "scenario_intro"))
 {
     game_timer--;
     if (game_timer <= 0)
@@ -33,6 +31,14 @@ if (!game_over && (state == "idle" || state == "scenario"))
         global.final_time = game_timer;
         audio_stop_all();
         room_goto(rm_end_screen);
+    }
+}
+if (state == "scenario_intro")
+{
+    if (keyboard_check_pressed(vk_space))
+    {
+        state = "scenario";
+        timer_active = true;
     }
 }
 if (state == "scenario")

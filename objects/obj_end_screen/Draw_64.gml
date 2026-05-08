@@ -24,6 +24,15 @@ else
 
 draw_set_color(make_color_rgb(255, 220, 100));
 draw_text_transformed(gui_w / 2, 340, "Your Score: " + string(final_score), 0.8, 0.8, 0);
+draw_set_color(make_color_rgb(255, 220, 100));
+draw_text_transformed(gui_w / 2, 340, "Your Score: " + string(final_score), 0.8, 0.8, 0);
+
+if (final_score < 0)
+{
+    draw_set_color(make_color_rgb(255, 180, 100));
+    draw_text_transformed(gui_w / 2, 400, "Speak to your organiser about where to get more help", 0.45, 0.45, 0);
+}
+
 
 if (!name_entered)
 {

@@ -60,7 +60,6 @@ coin_frame = 0;
 flash_active = false;
 flash_sprite = -1;
 flash_frame = 0;
-
 function start_random_scenario()
 {
     if (array_length(available_scenarios) <= 0)
@@ -83,8 +82,8 @@ function start_random_scenario()
     options = node.options;
     selected_option = 0;
     current_portrait = choose(portrait_sprites[0], portrait_sprites[1]);
-    state = "scenario";
-    timer_active = true;
+    state = "scenario_intro";
+    timer_active = false;
     timer_current = 0;
     timer_frame = 0;
 }
