@@ -133,6 +133,7 @@
     {"id":{"name":"longCafeTable","path":"sprites/longCafeTable/longCafeTable.yy",},},
     {"id":{"name":"MainMenu","path":"sprites/MainMenu/MainMenu.yy",},},
     {"id":{"name":"MazeFloor","path":"sprites/MazeFloor/MazeFloor.yy",},},
+    {"id":{"name":"MiniPlayerSprite_Left","path":"sprites/MiniPlayerSprite_Left/MiniPlayerSprite_Left.yy",},},
     {"id":{"name":"MiniPlayerSprite","path":"sprites/MiniPlayerSprite/MiniPlayerSprite.yy",},},
     {"id":{"name":"MiniPlayerSprite1","path":"sprites/MiniPlayerSprite1/MiniPlayerSprite1.yy",},},
     {"id":{"name":"officeChair","path":"sprites/officeChair/officeChair.yy",},},

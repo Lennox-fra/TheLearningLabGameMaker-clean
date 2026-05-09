@@ -17,6 +17,13 @@ if (g != noone && g.state == "idle") {
 
     var h = keyboard_check(vk_right) - keyboard_check(vk_left);
     var v = keyboard_check(vk_down) - keyboard_check(vk_up);
+	
+	if (h < 0) {
+    sprite_index = MiniPlayerSprite_Left;
+	}
+	else if (h > 0) {
+	    sprite_index = MiniPlayerSprite;
+	}
 
     
 
