@@ -10,41 +10,58 @@ if (state != "game_over")
     var hud_x = 30;
     var hud_y = 30;
     var box_width = 380;
-    var box_height = 200;
+    var box_height = 210;
     var coin_size = 150;
-    var _box_scale_x = box_width / sprite_get_width(spr_money_box);
-    var _box_scale_y = box_height / sprite_get_height(spr_money_box);
+
+    var src_w = sprite_get_width(spr_money_box);
+    var src_h = sprite_get_height(spr_money_box);
+    var _box_scale_x = box_width / src_w;
+    var _box_scale_y = box_height / src_h;
+
     draw_sprite_ext(
         spr_money_box, 0,
         hud_x, hud_y,
         _box_scale_x, _box_scale_y,
         0, c_white, 1
     );
+
+    var inner_x1 = hud_x + 68 * _box_scale_x;
+    var inner_y1 = hud_y + 74 * _box_scale_y;
+    var inner_x2 = hud_x + 488 * _box_scale_x;
+    var inner_y2 = hud_y + 235 * _box_scale_y;
+    var inner_w = inner_x2 - inner_x1;
+    var inner_h = inner_y2 - inner_y1;
+    var inner_cx = (inner_x1 + inner_x2) / 2;
+    var inner_cy = (inner_y1 + inner_y2) / 2;
+
     var _coin_scale = coin_size / sprite_get_width(spr_coin_anim);
     var _coin_draw_w = sprite_get_width(spr_coin_anim) * _coin_scale;
     var _coin_draw_h = sprite_get_height(spr_coin_anim) * _coin_scale;
-    var _coin_x = hud_x + (box_width * 0.40) - (_coin_draw_w / 2);
-    var _coin_y = hud_y + (box_height / 2) - (_coin_draw_h / 2);
+    var _coin_x = inner_x1 + inner_w * 0.20 - (_coin_draw_w / 2);
+    var _coin_y = inner_cy - (_coin_draw_h / 2);
     draw_sprite_ext(
         spr_coin_anim, coin_frame,
         _coin_x, _coin_y,
         _coin_scale, _coin_scale,
         0, c_white, 1
     );
+
     draw_set_font(fnt_main);
     draw_set_halign(fa_left);
     draw_set_valign(fa_middle);
     draw_set_color(c_white);
     draw_text_transformed(
-        hud_x + (box_width * 0.45),
-        hud_y + (box_height / 2) + 8,
+        inner_x1 + inner_w * 0.40,
+        inner_cy + 8,
         string(money),
         0.6, 0.6,
         0
     );
+
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }
+
 if (state != "game_over")
 {
     var seconds_left = ceil(game_timer / game_get_speed(gamespeed_fps));

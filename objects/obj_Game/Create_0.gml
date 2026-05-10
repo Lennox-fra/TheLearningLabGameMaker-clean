@@ -1,6 +1,10 @@
 randomize();
 audio_stop_sound(snd_mainMusic);
 audio_play_sound(snd_music, 0, true);
+if (variable_global_exists("vol_music") && variable_global_exists("vol_master"))
+{
+    audio_sound_gain(snd_music, global.vol_music * global.vol_master, 0);
+}
 display_set_gui_size(1920, 1080);
 gpu_set_texfilter(false);
 surface_resize(application_surface, 1920, 1080);

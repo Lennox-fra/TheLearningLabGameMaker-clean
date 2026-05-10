@@ -1,4 +1,5 @@
 coin_frame += 0.1;
+
 if (flash_active)
 {
     flash_frame++;
@@ -8,6 +9,7 @@ if (flash_active)
         flash_frame = 0;
     }
 }
+
 if (!game_over && (state == "idle" || state == "scenario" || state == "scenario_intro"))
 {
     game_timer--;
@@ -33,6 +35,7 @@ if (!game_over && (state == "idle" || state == "scenario" || state == "scenario_
         room_goto(rm_end_screen);
     }
 }
+
 if (state == "scenario_intro")
 {
     if (keyboard_check_pressed(vk_space))
@@ -41,6 +44,7 @@ if (state == "scenario_intro")
         timer_active = true;
     }
 }
+
 if (state == "scenario")
 {
     var scenario = scenarios[current_scenario];
@@ -54,6 +58,10 @@ if (state == "scenario")
             timer_active = false;
             money += -250;
             audio_play_sound(snd_money_loss, 1, false);
+            if (variable_global_exists("vol_sfx") && variable_global_exists("vol_master"))
+            {
+                audio_sound_gain(snd_money_loss, global.vol_sfx * global.vol_master, 0);
+            }
             flash_active = true;
             flash_sprite = spr_screen_flash_red;
             flash_frame = 0;
@@ -82,6 +90,10 @@ if (state == "scenario")
         if (money_change < 0)
         {
             audio_play_sound(snd_money_loss, 1, false);
+            if (variable_global_exists("vol_sfx") && variable_global_exists("vol_master"))
+            {
+                audio_sound_gain(snd_money_loss, global.vol_sfx * global.vol_master, 0);
+            }
             flash_active = true;
             flash_sprite = spr_screen_flash_red;
             flash_frame = 0;
@@ -89,6 +101,10 @@ if (state == "scenario")
         else if (money_change > 0)
         {
             audio_play_sound(snd_money_gain, 1, false);
+            if (variable_global_exists("vol_sfx") && variable_global_exists("vol_master"))
+            {
+                audio_sound_gain(snd_money_gain, global.vol_sfx * global.vol_master, 0);
+            }
             flash_active = true;
             flash_sprite = spr_screen_flash_green;
             flash_frame = 0;

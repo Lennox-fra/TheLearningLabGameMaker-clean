@@ -8,10 +8,8 @@ if (transitioning)
     }
     exit;
 }
-
 var mx = device_mouse_x_to_gui(0);
 var my = device_mouse_y_to_gui(0);
-
 hovered = -1;
 for (var i = 0; i < array_length(buttons); i++)
 {
@@ -22,7 +20,6 @@ for (var i = 0; i < array_length(buttons); i++)
         break;
     }
 }
-
 if (hovered != -1 && mouse_check_button_pressed(mb_left))
 {
     var clicked = buttons[hovered].name;
@@ -34,6 +31,9 @@ if (hovered != -1 && mouse_check_button_pressed(mb_left))
             target_room = rm_age_choice;
             break;
         case "settings":
+            transitioning = true;
+            loading_frame = 0;
+            target_room = rm_settings;
             break;
         case "credits":
             transitioning = true;
